@@ -45,7 +45,6 @@ const button= tv({
         {
             color: ['primary', 'secondary'],
             variant: 'text',
-            class: 'text-current'
         },
         {
             color: ['primary'],
@@ -71,7 +70,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             color = 'primary',
             fullWidth = true,
             icon,
-            iconDirection = 'start',
+            iconDirection,
             loading = false,
             rounded = false,
             size = 'md',

@@ -13,5 +13,6 @@ const Template: StoryFn<ButtonProps> = (args) => <Button {...args} />;
 export const Default = Template.bind({});
 Default.args = {
     children: 'Button',
+    variant:'outlined',
 };
 
