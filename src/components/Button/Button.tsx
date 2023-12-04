@@ -12,7 +12,10 @@ const button= tv({
     variants: {
         color: {
             primary: 'text-primary-main',
-            secondary: 'text-secondary-main'
+            secondary: 'text-secondary-main',
+            error: 'text-error-main',
+            neutral: 'text-neutral-main',
+            warning: 'text-warning-main'
         },
         size: {
             sm: 'h-9',
@@ -51,7 +54,22 @@ const button= tv({
             color: ['secondary'],
             variant: 'contained',
             className: 'text-white bg-secondary-main'
-        }
+        },
+        {
+            color: ['error'],
+            variant: 'contained',
+            className: 'text-white bg-error-main'
+        },
+        {
+            color: ['neutral'],
+            variant: 'contained',
+            className: 'text-white bg-neutral-main'
+        },
+        {
+            color: ['warning'],
+            variant: 'contained',
+            className: 'text-white bg-warning-main'
+        },
     ]
 })
 
