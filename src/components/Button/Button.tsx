@@ -33,28 +33,24 @@ const button= tv({
             elevation: 'shadow-md bg-white'
         },
         disabled: {
-            true: 'bg-disabled-main text-disabled-text'
+            true: 'bg-disabled-main text-disabled-text border-0 cursor-not-allowed'
         }
     },
     compoundVariants: [
         {
-            color: ['secondary', 'primary'],
-            variant: 'outlined',
-            class: 'border-current'
-        },
-        {
             color: ['primary', 'secondary'],
-            variant: 'text',
+            variant: 'outlined',
+            className: 'border-current'
         },
         {
             color: ['primary'],
             variant: 'contained',
-            class: 'text-white bg-primary-main'
+            className: 'text-white bg-primary-main'
         },
         {
             color: ['secondary'],
             variant: 'contained',
-            class: 'text-white bg-secondary-main'
+            className: 'text-white bg-secondary-main'
         }
     ]
 })
@@ -76,6 +72,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             size = 'md',
             variant = 'contained',
             disabled,
+            className,
             ...props
         },
         ref,
@@ -101,13 +98,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         };
 
         return (
-            <button className={button({
+            <button {...props} className={button({
                 color,
                 size,
                 rounded,
                 fullWidth,
                 variant,
-                disabled
+                disabled,
+                className
             })}>
                 <Condition.If condition={iconDirection === 'start'}>
                      <Condition.Then>
