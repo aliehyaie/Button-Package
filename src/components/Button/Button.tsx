@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import { forwardRef } from 'react';
-import type { ReactNode } from 'react';
 import type { ButtonProps } from './Button.types';
 import {LoadingProps} from "./Button.types";
 import Condition from "../Condition";
@@ -77,25 +76,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         },
         ref,
     ) => {
-        const shouldRenderIcon = (): boolean => Boolean(icon);
-
-        const renderLoading = (): ReactNode => (
-            <Loading
-                color={color}
-                disabled={disabled}
-                size={size}
-                variant={variant}
-            />
-        );
-
-
-        const renderContent = (): ReactNode => {
-            if (loading && !shouldRenderIcon()) {
-                return renderLoading();
-            }
-
-            return children;
-        };
+        const renderContent = loading ? <Loading
+            color={color}
+            disabled={disabled}
+            size={size}
+            variant={variant}
+        /> : children;
 
         return (
             <button {...props} className={button({
@@ -112,7 +98,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                          <Icon />
                      </Condition.Then>
                 </Condition.If>
-                {renderContent()}
+                {renderContent}
                 <Condition.If condition={iconDirection === 'end'}>
                     <Condition.Then>
                         <Icon />
