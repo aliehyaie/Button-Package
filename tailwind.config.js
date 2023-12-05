@@ -11,6 +11,15 @@ export default {
         secondary: {
           main: 'tomato'
         },
+        error: {
+          main: '#DF1D17'
+        },
+        neutral: {
+          main: '#686C79'
+        },
+        warning: {
+          main: '#EBA825'
+        },
         disabled:{
           main: '#252a3c1f',
           text:'#252a3c61'
